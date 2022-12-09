@@ -21,3 +21,55 @@ const allWagesFor = function () {
     return payable
 }
 
+let createEmployeeRecord = function(row){
+    return {
+        firstName: row[0],
+        familyName: row[1],
+        title: row[2],
+        payPerHour: row[3],
+        timeInEvents: [],
+        timeOutEvents: []
+      }
+    }
+
+    let createEmployeeRecords = function(employeeRowData) {
+        return employeeRowData.map(function(row){
+            return createEmployeeRecord(row)
+        })
+      }
+      let createTimeInEvent = function(dateStamp){
+        let [date, hour] = dateStamp.split(' ')
+      
+        this.timeInEvents.push({
+            type: "TimeIn",
+            hour: parseInt(hour, 10),
+            date,
+        })
+      
+        return this
+      }
+      let createTimeOutEvent = function(dateStamp){
+        let [date, hour] = dateStamp.split(' ')
+      
+        this.timeOutEvents.push({
+            type: "TimeOut",
+            hour: parseInt(hour, 10),
+            date,
+        })
+      
+        return this
+      }
+      let hoursWorkedOnDate = function(soughtDate){
+        let comingIn = this.timeInEvents.find(function(e){
+            return e.date === soughtDate
+        })
+      
+      
+        const createEmployeeRecords = function (employeesData) {
+          return employeesData.map((eachData) => {
+            return createEmployeeRecord(eachData);
+          })
+        }
+    }
+
+    
